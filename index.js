@@ -9,5 +9,4 @@ contaCorrenteRicardo.depositar(500);
 
 const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
 
-console.log(contaPoupanca.saldo);
-console.log(ContaCorrente.numeroContas);
+console.log("Teste commit");
