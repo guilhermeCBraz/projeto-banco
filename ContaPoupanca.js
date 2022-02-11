@@ -1,16 +1,28 @@
 export class ContaPoupanca {
-  #saldo;
-  #cliente;
-  #agencia;
-
   constructor(saldoInicial, cliente, agencia) {
-    this.#saldo = saldoInicial;
-    this.#cliente = cliente;
-    this.#agencia = agencia;
+      this._saldo = saldoInicial;
+      this._cliente = cliente;
+      this._agencia = agencia;
   }
 
-  get saldo(){
-    return this.#saldo;
+  sacar(valor) {
+      if (this._saldo >= valor) {
+          this._saldo -= valor;
+          return valor;
+      }
   }
 
+  depositar(valor) {
+      if (valor <= 100) {
+          return;
+      }
+      this._saldo += valor;
+  }
+
+  tranferir(valor, conta) {
+
+      const valorSacado = this.sacar(valor);
+      conta.depositar(valorSacado);
+
+  }
 }
